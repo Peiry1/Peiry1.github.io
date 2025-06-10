@@ -2,6 +2,16 @@
 layout: blog
 title: Hexo静态博客部署Decap CMS(Netlify)
 date: 2025-06-06T18:02:00.000Z
+updated: 2025-06-10 15:12:00 +0800
+categories:
+  - 经验总结
+tags:
+  - 博客搭建
+aside: true
+comments: false
+toc: true
+toc_number: true
+toc_style_simple: true
 thumbnail: /images/uploads/eqibxc2k-1200.avif
 rating: 5
 ---
