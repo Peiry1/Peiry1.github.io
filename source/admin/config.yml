@@ -32,7 +32,7 @@ collections:
       #post categories
       - { label: "Categories", name: "categories", widget: "list", allow_add: true, required: false } # 新增
       - { label: "Tags", name: "tags", widget: "list", allow_add: true, required: false } # 新增
-      #post menu
+      #post display menu
       - { label: "Aside", name: "aside", widget: "boolean", default: true, required: false } # 新增
       - { label: "Comments", name: "comments", widget: "boolean", default: true, required: false } # 新增
       - { label: "Toc", name: "toc", widget: "boolean", default: true, required: false } # 新增
