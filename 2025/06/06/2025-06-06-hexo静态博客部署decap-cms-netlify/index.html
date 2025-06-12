@@ -1,0 +1,286 @@
+<!DOCTYPE html><html lang="ZH-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Hexo静态博客部署Decap CMS(Netlify) | 欢迎</title><meta name="author" content="Prybar"><meta name="copyright" content="Prybar"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="这里是个标题 好久没搞博客了，之前写的博客放在github page上就没碰了，导致现在想新搞一个CMS，一地鸡毛 不得已，还好之前及路过如何建立一个hexo博客（甚至没写完！）那就只好从头搞了  先说下目标： 我们要在已有的hexo架构的博客上，使用Netlify（net + life -&gt;Netlify)静态博客后端管理，现在这个名字叫Decap CMS。  那么，我们获得了什么？ 1通">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo静态博客部署Decap CMS(Netlify)">
+<meta property="og:url" content="https://peiry1.github.io/2025/06/06/2025-06-06-hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2decap-cms-netlify/index.html">
+<meta property="og:site_name" content="欢迎">
+<meta property="og:description" content="这里是个标题 好久没搞博客了，之前写的博客放在github page上就没碰了，导致现在想新搞一个CMS，一地鸡毛 不得已，还好之前及路过如何建立一个hexo博客（甚至没写完！）那就只好从头搞了  先说下目标： 我们要在已有的hexo架构的博客上，使用Netlify（net + life -&gt;Netlify)静态博客后端管理，现在这个名字叫Decap CMS。  那么，我们获得了什么？ 1通">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://peiry1.github.io/images/custom/Nico-icon.gif">
+<meta property="article:published_time" content="2025-06-06T10:02:00.000Z">
+<meta property="article:modified_time" content="2025-06-10T07:12:00.000Z">
+<meta property="article:author" content="Prybar">
+<meta property="article:tag" content="博客搭建">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://peiry1.github.io/images/custom/Nico-icon.gif"><link rel="shortcut icon" href="/images/custom/favicon.ico"><link rel="canonical" href="https://peiry1.github.io/2025/06/06/2025-06-06-hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2decap-cms-netlify/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hexo静态博客部署Decap CMS(Netlify)',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'blog'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/custom/Nico-icon.gif" onerror="this.onerror=null;this.src='/theme_img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-list"></i><span> List</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-th"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/search/"><i class="fa-fw fas fa-search"></i><span> Search</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-list"></i><span> List</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-th"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/search/"><i class="fa-fw fas fa-search"></i><span> Search</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">Hexo静态博客部署Decap CMS(Netlify)</h1></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><strong>这里是个标题</strong></p>
+<p>好久没搞博客了，之前写的博客放在github page上就没碰了，导致现在想新搞一个CMS，一地鸡毛</p>
+<p>不得已，还好之前及路过如何建立一个hexo博客（甚至没写完！）那就只好从头搞了</p>
+<hr>
+<p><strong>先说下目标：</strong></p>
+<p>我们要在已有的hexo架构的博客上，使用Netlify（net + life -&gt;Netlify)静态博客后端管理，现在这个名字叫Decap CMS。</p>
+<hr>
+<p><strong>那么，我们获得了什么？</strong></p>
+<p>1通过这个Netlify，我们就能获得一个免费的域名, 后缀是xxxx.netlify.app（是的，你可以不再使用github page，多了个选择)。</p>
+<p>2在这个域名上则绑定了我的github仓库，这意味着你还是可以通过github 来保管你的静态博客代码。</p>
+<p>3更重要的是，Netlify 允许我们免费的使用其Decap CMS（前名：Netlify CMS)来管理我们的静态博客，这意味着我们可以像一些动态博客架构，比如python语言的django，来通过CMS，拥有一个admin后台来管理我们的博客。你就可以直接在网页上编辑管理你的博客，不用天天在本地编辑再，再用git push 推送到你的仓库啦！</p>
+<p>4而且，通过CMS，你的修改会被Netlify 追踪，并同步到你的github仓库，你至此告别了git push。</p>
+<hr>
+<p>我们的操作流程目录：</p>
+<p>考虑到之前搞得一团糟，这里我们要从头开始，这样也能加深对前端的理解</p>
+<p>1，新建一个hexo</p>
+<p>    在本地选择一个位置，使用vscode打开，然后打开终端</p>
+<p>    当然，可以用git bash，或者纯cmd，powershell，linux的terminal，mobaxterm都行</p>
+<p>    这里假定你已经安装好了node.js，npm，hexo等等前置，我在上一post讲过</p>
+<p>    然后输入hexo init</p>
+<p>   hexo会给你生成一个全新的博客模板，一般而言在vscode上长这样。</p>
+<p>   xxxx_project&#x2F;<br>    ├──.github # GitHub相关配置目录（如workflows等）</p>
+<p>    ├── node_modules&#x2F; # npm安装的依赖包目录<br>    ├── scaffolds&#x2F; # 文章模板目录（Hexo默认）<br>    ├── source&#x2F; # 源文件目录<br>    │ └── _posts&#x2F; # 博客文章目录</p>
+<p>    ├── themes&#x2F; # 主题目录（虽未显示但_config.yml中配置了主题<br>    ├──_config.landscape.yml # Hexo主配置文件</p>
+<p>    ├──_config.yml # Hexo主配置文件</p>
+<p>    ├──.gitignore # Git忽略规则<br>    ├── package-lock.json # npm依赖锁定文件</p>
+<p>    └──package.json # npm项目配置文件（虽未显示但应存在）</p>
+<p>2生成静态文件</p>
+<p>    在你执行完hexo clean 和hexo generate后，hexo就会给你生成一堆静态文件。<br>    这些静态文件在public目录下</p>
+<p>    xxxx_project&#x2F;<br>    ├──.github # GitHub相关配置目录（如workflows等）</p>
+<p>    ├── node_modules&#x2F; # npm安装的依赖包目录</p>
+<p>    <strong>├──public&#x2F; # 生成的静态文件目录</strong><br>    ├── scaffolds&#x2F; # 文章模板目录（Hexo默认）<br>    ├── source&#x2F; # 源文件目录<br>    │ └── _posts&#x2F; # 博客文章目录</p>
+<p>    ├── themes&#x2F; # 主题目录（虽未显示但_config.yml中配置了主题<br>    ├──_config.landscape.yml # Hexo主配置文件</p>
+<p>    ├──_config.yml # Hexo主配置文件</p>
+<p>    ├──.gitignore # Git忽略规则</p>
+<p>    ├──db.json<br>    ├── package-lock.json # npm依赖锁定文件</p>
+<p>    └──package.json # npm项目配置文件（虽未显示但应存在）</p>
+<p>    当然，public中的具体内这里就不展开讲解了</p>
+<p>    这时候你就可以使用hexo server，在本地上浏览你的博客会长什么样子了</p>
+<p>3 github–饭桶之家</p>
+<p>    如果我们想把我们的仓库同步到github上，我们该怎么做？</p>
+<p>    当然，首先你要有个git，还要有个github账号<br>    vscode上在源代码管理上有把代码推上去的方法，你可以在图形界面操作，直接推上去</p>
+<p>    但是，如果你网络没配置好，http推送就可能出问题！</p>
+<p>    而且，大家一般而言更喜欢用ssh。</p>
+<p>    所以，这里的操作如下。我实在vscode 终端新建了git bash来操作</p>
+<p>    3.1首先，你要有个空的远程仓库。</p>
+<p>        不管你是用图形界面，还是上github自己的账户来新建个仓库，都行</p>
+<p>    3.2 git init !</p>
+<p>        这个操作会在你的本地代码仓搞一个git来跟踪你的代码</p>
+<p>    3.3 git remote</p>
+<p>        如果你用图形界面，vscode会自动给你新建个仓库，然后把你的remote设置好</p>
+<p>        但很可惜，你可能网络不好！或者没配置好，或者更喜欢ssh，就得手敲</p>
+<p>        git remote -v会查看当前远程服务器是啥</p>
+<p>        图形界面会给你设置成https，我们推荐ssh</p>
+<p>        git remote remove origin 这一步会删去我们注册的的远程服务器</p>
+<p>        git remote add origin <a href="mailto:&#103;&#x69;&#116;&#64;&#103;&#105;&#116;&#x68;&#117;&#x62;&#x2e;&#99;&#111;&#x6d;">git@github.com</a>:xxxxxxxx.git 这里咱贴上我们的远程服务器名称即可</p>
+<p>    3.4 git add .</p>
+<p>        我建议这个操作前，先hexo clean，把public删了，那一堆静态文件我们后面再处理</p>
+<p>        git add .是把当前目录下所有文件都扔进去，登记</p>
+<p>        你也可以git add xxx，单独选择你要登记的文件</p>
+<p>    3.5 git commit -m “xxxxx”</p>
+<p>        这一步，我们就会给登记好的文件，加上登记条标签。comment就是评论嘛。</p>
+<p>        一般而言大佳就会写我这次增加的文件是为了干啥</p>
+<p>    3.6 git branch</p>
+<p>        这一步存粹是检查你当前分支是啥。</p>
+<p>        branch在英文里是树枝的意思。如果不能理解，主干道上的岔路就是branch。</p>
+<p>        branch是管理你的代码分路的。如果你想给代码搞骚操作又不想影响整个代码，就可以开个新branch瞎搞，这样也不会影响主干。这个特别适合团队协作。</p>
+<p>        好了，git branch 就是看你当前是啥分支<br>        git branch xxx会新建一个branch</p>
+<p>        git branch checkout则会切换分支，switch那种</p>
+<p>    3.7 git push!</p>
+<p>        大费周章的提branch，就是为了不再这里被搞事情。</p>
+<p>        git push origin xxxx(branch)</p>
+<p>        这个指令就是把你的当前commit，推送到xxx这个branch上。</p>
+<p>        origin是你的远程仓库，我们在3.3的remote里设置过了</p>
+<p>        这里要确保的就是你当前的branch，和你要推上去的branch一致</p>
+<p>        push 成功后，我们的github上就存放好了我们的博客代码</p>
+<p>4搞个butterfly主题！</p>
+<p>    一般而言，很多博主会使用npm来安装butterfly主题</p>
+<p>       npm install hexo-theme-butterfly</p>
+<p>    这个指令对新手来说很坑，其文件下载后会安装在node_modules&#x2F;hexo-theme-butterfly&#x2F;_config.yml。你需要去修改这里面的配置文件，或者复制这个到根目录改名。具体操作我就不讲了，去node_modules依托里寻找主题还是难以接受</p>
+<p>-</p>
+<p>    我这里推荐古法操作。由于我们以后肯定要魔改博客显示，butterfly主题不能更新就拉倒，我们可以放心这么玩。</p>
+<p>    ├── themes&#x2F; # 主题目录（虽未显示但_config.yml中配置了主题</p>
+<p>    在项目中git clone -b master <a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly.git">https://github.com/jerryc127/hexo-theme-butterfly.git</a> themes&#x2F;butterfly</p>
+<p>    这里的后缀， themes&#x2F;Butterfly，就是让文件下载在命令行在当前目录下的这个路径</p>
+<p>    其中，master是稳定分支，dev则是实验性分支，这里肯定无脑推荐稳定分支。</p>
+<p>-注意！</p>
+<p>    由于主题文件默认时不被git识别的，但我们可以使用git submodule来帮助我们同步主题仓库。</p>
+<p>    使用git submodule add <a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly.git">https://github.com/jerryc127/hexo-theme-butterfly.git</a> themes&#x2F;butterfly，即可在推送同时跟踪themes中的内容</p>
+<p>    如果你需要自己魔改内容，也可以自己fork，或者下载相关文件，新建一个自己的主题仓库，把链接换成自己的</p>
+<p>    这个指令执行后，git就会跟踪你的主题文件，同时会增加一个.gitmodules文件，里面的配置就是你的clone的仓库和部署路径</p>
+<p>    需要注意的是，如果用自己的仓库，建议使用https来克隆文件，使用ssh，就需要在netlify上找到depoly key，把这个注册到github你的仓库上，配置许可才行。</p>
+<p>-</p>
+<p>当我们下载好文件后，我们只改个文件就好啦</p>
+<p>首先，要把旧的主题文件删了。原先根目录下有个_config.landscape.yml，我们这里把他改成_config.butterfly.yml</p>
+<p>然后，到我们的butterfly主题文件中，把_config.yml 中的文件内容拷贝过来。</p>
+<p>最后，我们在根目录的_config.yml中，找到并填上上theme: butterfly</p>
+<p>我们的主题就搞好了</p>
+<p>5 把博客推到Netlify上！</p>
+<p>    笔者这里在上传到netlify 进行depoly时，发现静态文件中的css一个没生成！但在本地是好的。在排查问题中取消了了使用submodule，改用全部跟踪Themes下的butterfly。这样也方便自己魔改文件。方法就是去掉butterfly文件中的.github文件。</p>
+<p>    但最后发现原因是自己的文件名是themes&#x2F;Butterfly，而_config.ymal中配置的的是butterfly。修正大小写后，netlify就depoly成功了。</p>
+<p>    原因时netlify 网页上时linux后台，跟我们的Window系统和MacOS不一样，大小写敏感…</p>
+<p>    被自己蠢到吐血。</p>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://peiry1.github.io">Prybar</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://peiry1.github.io/2025/06/06/2025-06-06-hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2decap-cms-netlify/">https://peiry1.github.io/2025/06/06/2025-06-06-hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2decap-cms-netlify/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a></div><div class="post-share"><div class="social-share" data-image="/images/custom/Nico-icon.gif" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav id="pagination"><div class="pagination"></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/custom/Nico-icon.gif" onerror="this.onerror=null;this.src='/theme_img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Prybar</div><div class="author-info-description">一花一世界，一叶一菩提</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Peiry1"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Peiry1" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:peiry666@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog!</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/08/2025-06-08-%E7%BE%8E%E8%82%A1%E4%BA%A4%E6%98%93%E5%A4%8D%E7%9B%98/" title="美股交易复盘">美股交易复盘</a><time datetime="2025-06-08T15:48:00.000Z" title="Created 2025-06-08 23:48:00">2025-06-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/08/2025-06-08-%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93-ios-%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91/" title="技术总结:Ios 脚本开发">技术总结:Ios 脚本开发</a><time datetime="2025-06-08T12:14:00.000Z" title="Created 2025-06-08 20:14:00">2025-06-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/07/2025-06-06-%E7%BE%8E%E8%82%A1%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" title="美股经验总结">美股经验总结</a><time datetime="2025-06-06T20:25:00.000Z" title="Created 2025-06-07 04:25:00">2025-06-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/06/2025-06-06-hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2decap-cms-netlify/" title="Hexo静态博客部署Decap CMS(Netlify)">Hexo静态博客部署Decap CMS(Netlify)</a><time datetime="2025-06-06T10:02:00.000Z" title="Created 2025-06-06 18:02:00">2025-06-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/06/hello-world/" title="Hello World">Hello World</a><time datetime="2025-06-05T16:13:47.480Z" title="Created 2025-06-06 00:13:47">2025-06-06</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%97%A5%E8%AE%B0/"><span class="card-category-list-name">日记</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"><span class="card-category-list-name">经验总结</span><span class="card-category-list-count">4</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 1.1em; color: #999">博客搭建</a> <a href="/tags/%E7%BE%8E%E8%82%A1/" style="font-size: 1.1em; color: #999">美股</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>Archives</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/06/">
+            <span class="card-archive-list-date">
+              六月 2025
+            </span>
+            <span class="card-archive-list-count">5</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/04/">
+            <span class="card-archive-list-date">
+              四月 2025
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">9</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-06-12T15:55:57.729Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2025 By Prybar</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

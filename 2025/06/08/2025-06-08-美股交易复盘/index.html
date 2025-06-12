@@ -1,0 +1,225 @@
+<!DOCTYPE html><html lang="ZH-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>美股交易复盘 | 欢迎</title><meta name="author" content="Prybar"><meta name="copyright" content="Prybar"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="今天花了3个小时左右，把近期一坨乱码的技术分析研究了下 实际上窍门挺简单的，看横坐标呗 目前总结如下： 周线-&gt;这一年的行情 日线-&gt;这月的行情 4h线-&gt;这周的行情 1h&#x2F;30min&#x2F;1min-&gt;当日行情，以及最佳购入点 - 结合rsi，布林带来看，我认为一个多周期交易系统已经有了雏形了这套系统还需要在做一些回测，这也是我近期要做的一个很大工程，我需要">
+<meta property="og:type" content="website">
+<meta property="og:title" content="美股交易复盘">
+<meta property="og:url" content="https://peiry1.github.io/2025/06/08/2025-06-08-%E7%BE%8E%E8%82%A1%E4%BA%A4%E6%98%93%E5%A4%8D%E7%9B%98/index.html">
+<meta property="og:site_name" content="欢迎">
+<meta property="og:description" content="今天花了3个小时左右，把近期一坨乱码的技术分析研究了下 实际上窍门挺简单的，看横坐标呗 目前总结如下： 周线-&gt;这一年的行情 日线-&gt;这月的行情 4h线-&gt;这周的行情 1h&#x2F;30min&#x2F;1min-&gt;当日行情，以及最佳购入点 - 结合rsi，布林带来看，我认为一个多周期交易系统已经有了雏形了这套系统还需要在做一些回测，这也是我近期要做的一个很大工程，我需要">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://peiry1.github.io/images/custom/Nico-icon.gif">
+<meta property="article:published_time" content="2025-06-08T15:48:00.000Z">
+<meta property="article:modified_time" content="2025-06-09T07:21:22.660Z">
+<meta property="article:author" content="Prybar">
+<meta property="article:tag" content="Prybar">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://peiry1.github.io/images/custom/Nico-icon.gif"><link rel="shortcut icon" href="/images/custom/favicon.ico"><link rel="canonical" href="https://peiry1.github.io/2025/06/08/2025-06-08-%E7%BE%8E%E8%82%A1%E4%BA%A4%E6%98%93%E5%A4%8D%E7%9B%98/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '美股交易复盘',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'blog'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/custom/Nico-icon.gif" onerror="this.onerror=null;this.src='/theme_img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-list"></i><span> List</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-th"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/search/"><i class="fa-fw fas fa-search"></i><span> Search</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-list"></i><span> List</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-th"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/search/"><i class="fa-fw fas fa-search"></i><span> Search</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">美股交易复盘</h1></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>今天花了3个小时左右，把近期一坨乱码的技术分析研究了下</p>
+<p>实际上窍门挺简单的，看横坐标呗</p>
+<p>目前总结如下：</p>
+<p>周线-&gt;这一年的行情</p>
+<p>日线-&gt;这月的行情</p>
+<p>4h线-&gt;这周的行情</p>
+<p>1h&#x2F;30min&#x2F;1min-&gt;当日行情，以及最佳购入点</p>
+<p>-</p>
+<p>结合rsi，布林带来看，我认为一个多周期交易系统已经有了雏形了<br>这套系统还需要在做一些回测，这也是我近期要做的一个很大工程，我需要先搭建一个量化框架<br>头疼，真正开始做事了才觉得时间根本不够用，但虚度光阴的时候根本不知道</p>
+<p>要学的太多了，量化框架，基本经济学，投资学，还有一堆大佬的传记….</p>
+<p>-</p>
+<p>总的来说，确定了不同周期k线的适用范围，那么结合rsi 和布林带做出的趋势判断，就很明了了</p>
+<p>这里先记录一下今天对明天的分析:</p>
+<p>-</p>
+<p>对高贵的<strong>三倍做多半导体</strong>soxl来说</p>
+<p>4h线上，这周的行情，趋势上，可能维持上升。但k线和rsi均不支持明天接着上涨了</p>
+<p>从日线来看，这月的上涨趋势快耗尽了，但布林带均线还在上升。这能说这月前景不明朗。而rsi和k线嘛，明日下跌的概率不小</p>
+<p>从周线上来看，趋势似乎是触底反弹？这意味着常持1年到2026年，似乎会翻倍？这玩意怎么长得根22年走吃这么像！然后，看k线，rsi，布林带中轨仍在下降，但rsi中轨已经平缓。k线超过了布林带中轨，似乎预示着下一波反弹的开始。但短期内还不好确定，我认为要等下周确定周线是否形成突破。</p>
+<p>1h，30min均预示着短期内的超涨，以及趋势的向下。我认为我购买的三倍做空soxs，虽然现在是亏损，但是会实现其价值</p>
+<p>-</p>
+<p><strong>黄金</strong>，我做的最顺，挣钱最多的</p>
+<p>rsi就是看黄金引入的，这玩意真管用啊，然后我就学上技术分析了</p>
+<p>黄金不得不看下月线，因为这玩意恐怖，一套3个年。</p>
+<p>月线现在的黄金非常危险，这意味着长持不是个好方案，但是，黄金的抗风险能力在基本面的支持下，这超涨可能持续的比大家想象的久。但是，愈能持续多久呢？中美还是比较理智的，目前还是维持谈判做生意的态度。谈呗，正儿八经开打前大家先能过过，临行前先吃点好的，万一不用打了不是。</p>
+<p>周线，周线在rsi均线上已有下跌的趋势，这很危险。参考上次回调，这意味着最多5%的下跌，当然也可能是3%。布林带的走势还是一路向上，应该说这玩意就没下来过。。。那么，我认为这次的回撤支撑位，可能在3100-3150附近。如果跌破中线，那么，我认为大的要来了，这会是整年的向下趋势。</p>
+<p>日线很纠结，嗯。rsi似乎会维持下跌，但是，目前k线还是没有跌破中线。rsi中线斜率甚至还抬头了。日线只能说目前是个盘整期，这一月会很复杂。</p>
+<p>最后，我最爱的4h线。4h线显然短期内过跌了，周一面临反弹的风险，所以我也清掉了dust，做波段嘛。从4h线来看，下跌的趋势非常明显，这一周下跌半周的概率非常高，但1天内可能面临回调。</p>
+<p>1h,30min均在周5进入超跌，这也是我清仓的理由。而且下跌趋势很明显，周一的反弹肯能要慢一些了。</p>
+<p>-</p>
+<p><strong>纳指</strong>，纳指我的预测，基本不太靠谱，正好今天学了点新的，用上吧。</p>
+<p>从月线来看纳指可能在2025年，开始大回撤，嗯。。。</p>
+<p>周线来看，这波自4月依赖的反弹，着实有点猛，搞得我也有点懵，但能持续多久？我不太看好纳指的长期趋势。。<br>从天线上来看，纳指似乎终于把这波反弹动力用完了，我们即将进入一个盘整期</p>
+<p>我最爱的4h线。这么看4h线其实也就决定给个3天至一周的行情。4h线意味着那只的反弹可能在这一周内开始下跌。别的不说，我真希望它涨。</p>
+<p>1h线似乎意味着纳指还有的涨。看来周一的跌幅不会很大。30min则有些看跌的架势，所以是震荡向上？然后回撤？</p>
+<p>总的来说，纳指无论短期还是和长期，都比较危险。。。</p>
+<p>-</p>
+<p><strong>印度 sensex</strong></p>
+<p>三哥牛皮！</p>
+<p>三哥在周线上长期看好！这意味着直到26年，都特么是涨！！！<br>然后25年为啥跌，也明朗了，那周线特么连着超涨了5回！rsi均线爆表到超涨第二次了！</p>
+<p>这下不得不看狗日的月线了，看完接着三哥牛逼！那马月线也是rsi均线超涨两次！但优点风险就是，月线的均线是向下的。</p>
+<p>但周线是双向上啊朋友，你还在等什么！</p>
+<p>4h线来看，趋势正在反转，变为上涨，这得到了双重印证。但是，短期内，涨太多了，rsi偏离10个点，k线触及布林带上轨。明日看空。但这周看涨。</p>
+<p>1h线也是同样的，我倾向于短暂的横盘，等趋势再稳一下。30min也一样，需要稳定一下<br>所以明天可能涨，但不好说涨多少，啥时候跌<br>但是，印度中长期看涨啊，买了放一周，没问题！</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://peiry1.github.io">Prybar</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://peiry1.github.io/2025/06/08/2025-06-08-%E7%BE%8E%E8%82%A1%E4%BA%A4%E6%98%93%E5%A4%8D%E7%9B%98/">https://peiry1.github.io/2025/06/08/2025-06-08-%E7%BE%8E%E8%82%A1%E4%BA%A4%E6%98%93%E5%A4%8D%E7%9B%98/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/images/custom/Nico-icon.gif" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav id="pagination"><div class="pagination"></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/custom/Nico-icon.gif" onerror="this.onerror=null;this.src='/theme_img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Prybar</div><div class="author-info-description">一花一世界，一叶一菩提</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Peiry1"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Peiry1" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:peiry666@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog!</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/08/2025-06-08-%E7%BE%8E%E8%82%A1%E4%BA%A4%E6%98%93%E5%A4%8D%E7%9B%98/" title="美股交易复盘">美股交易复盘</a><time datetime="2025-06-08T15:48:00.000Z" title="Created 2025-06-08 23:48:00">2025-06-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/08/2025-06-08-%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93-ios-%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91/" title="技术总结:Ios 脚本开发">技术总结:Ios 脚本开发</a><time datetime="2025-06-08T12:14:00.000Z" title="Created 2025-06-08 20:14:00">2025-06-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/07/2025-06-06-%E7%BE%8E%E8%82%A1%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" title="美股经验总结">美股经验总结</a><time datetime="2025-06-06T20:25:00.000Z" title="Created 2025-06-07 04:25:00">2025-06-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/06/2025-06-06-hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2decap-cms-netlify/" title="Hexo静态博客部署Decap CMS(Netlify)">Hexo静态博客部署Decap CMS(Netlify)</a><time datetime="2025-06-06T10:02:00.000Z" title="Created 2025-06-06 18:02:00">2025-06-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/06/hello-world/" title="Hello World">Hello World</a><time datetime="2025-06-05T16:13:47.480Z" title="Created 2025-06-06 00:13:47">2025-06-06</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%97%A5%E8%AE%B0/"><span class="card-category-list-name">日记</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"><span class="card-category-list-name">经验总结</span><span class="card-category-list-count">4</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 1.1em; color: #999">博客搭建</a> <a href="/tags/%E7%BE%8E%E8%82%A1/" style="font-size: 1.1em; color: #999">美股</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>Archives</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/06/">
+            <span class="card-archive-list-date">
+              六月 2025
+            </span>
+            <span class="card-archive-list-count">5</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/04/">
+            <span class="card-archive-list-date">
+              四月 2025
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">9</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-06-12T15:55:57.729Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2025 By Prybar</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
