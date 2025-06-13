@@ -10,8 +10,8 @@ keywords: null
 abbrlink: 32907
 date: 2025-4-7 12:00:00 +0800
 katex: null
-title: 2025-4-7 Hexo博客搭建
-updated: 2025-06-10 15:32:00 +0800
+title: 博客搭建(一)：Hexo博客搭建并部署自己的Butterfly主题
+updated: 2025-06-13 19:06:00 +0800
 description: hexo butterfly主题博客搭建方法
 cover: null
 top_img: null
