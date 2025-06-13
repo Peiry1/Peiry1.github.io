@@ -1,8 +1,8 @@
 ---
 layout: blog
-title: Hexo静态博客部署Decap CMS(Netlify)
+title: 博客搭建(二)----在Hexo静态博客上部署Netlify的Decap CMS内容管理
 date: 2025-06-06T18:02:00.000Z
-updated: 2025-06-10 15:12:00 +0800
+updated: 2025-06-13 19:09:00 +0800
 categories:
   - 经验总结
 tags:
