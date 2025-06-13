@@ -8,10 +8,22 @@
       siteshot: https://source.fomal.cc/siteshot/hexo.io.jpg
       
 - class_name: 2.友情链接
-  class_desc: 一些好朋友~~
+  class_desc: 大佬1
   link_list:
     - name: Fomalhaut🥝
-      link: https://fomal.cc/
+      link: https://fe32.top/
       avatar: /assets/head.jpg
       descr: Future is now 🍭🍭🍭
+      siteshot: https://source.fomal.cc/siteshot/www.fomal.cn.jpg
+
+    - name: 唐志远
+      link: https://fomal.cc/
+      avatar: /assets/head.jpg
+      descr: 2025年的理想开始实现了吗？
+      siteshot: https://source.fomal.cc/siteshot/www.fomal.cn.jpg
+      
+    - name: 偷掉月亮的阿硕
+      link: https://moonshuo.cn/
+      avatar: /assets/head.jpg
+      descr: 这是我的博客网站
       siteshot: https://source.fomal.cc/siteshot/www.fomal.cn.jpg

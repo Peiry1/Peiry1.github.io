@@ -1,4 +1,5 @@
 ---
-title: tag
-date: 2025-04-06 18:24:00
+title: tags
+date: 2025-06-13 01:42:20
+type: "tags"
 ---

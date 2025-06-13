@@ -17,13 +17,15 @@ nav:
   fixed: true
 
 menu:
+  Search: /search/ || fas fa-search
   Home: / || fas fa-home
   List: /archives/ || fas fa-list
   Categories: /categories/ || fas fa-th
   Tags: /tags/ || fas fa-tags
   link: /link/ || fas fa-link
   About: /about/ || fas fa-user
-  Search: /search/ || fas fa-search
+  Edit: /admin/ || fas fa-edit
+
 
 # --------------------------------------
 # Code Blocks Settings
@@ -302,6 +304,9 @@ aside:
     # Sort: date / updated
     sort: date
     sort_order:
+  card_bottom_self:
+    enable: true
+
   card_newest_comments:
     enable: false
     sort_order:
